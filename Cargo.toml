@@ -1,0 +1,14 @@
+﻿[package]
+name = "tvb-proxy"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+axum = "0.7"
+reqwest = { version = "0.12", features = ["json", "stream"] }
+aes = "0.8"
+ctr = "0.9"
+hex = "0.4"
+byteorder = "1.5"
+futures-util = "0.3"
