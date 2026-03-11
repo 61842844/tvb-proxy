@@ -1,7 +1,9 @@
-﻿FROM rust:1.75-slim as builder
+FROM rust:1.75-slim as builder
 WORKDIR /app
 COPY . .
+# 强制执行编译并显示错误详情
 RUN cargo build --release
+
 FROM debian:bookworm-slim
 RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/lists/*
 COPY --from=builder /app/target/release/tvb-proxy /usr/local/bin/tvb-proxy
